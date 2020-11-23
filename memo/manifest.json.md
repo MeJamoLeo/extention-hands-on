@@ -17,7 +17,7 @@
 | commands                  | <span style="color: green">Object</span> |     |
 | content_scripts           | <span style="color: orange">Array</span> | ○   |
 | content_security_policy   | <span style="color: red">String</span>   |     |
-| default_locale            | <span style="color: red">String</span>   | ○   |
+| default_locale            | <span style="color: red">String</span>   |     |
 | description               | <span style="color: red">String</span>   | ○   |
 | developer                 | <span style="color: green">Object</span> | ×   |
 | devtools_page             | <span style="color: red">String</span>   |     |
@@ -29,7 +29,7 @@
 | omnibox                   | <span style="color: green">Object</span> |     |
 | optional_permissions      | <span style="color: orange">Array</span> |     |
 | options_ui                | <span style="color: green">Object</span> | ○   |
-| page_action               | <span style="color: green">Object</span> | ○   |
+| page_action               | <span style="color: green">Object</span> |     |
 | permissions               | <span style="color: orange">Array</span> | ○   |
 | protocol_handlers         | <span style="color: orange">Array</span> | ×   |
 | short_name                | <span style="color: red">String</span>   |     |
@@ -153,6 +153,8 @@
 | page       | <span style="color: red">String</span>                                           |     | バックグラウンドページに内容を持たせたい場合，このキーを利用することで指定できる.<br>manifest.json から拡張機能の中に含まれる HTML ドキュメントを参照するためのパスを指定する．                              |
 | persistent | <span style="color: purple">Boolean</span>                                       |     | 💩 ようわからん.<br>とりあえず，指定していない拡張機能も見られたので，使い方がわかるまで使わない.                                                                                                            |
 
+<br>
+
 ## **browser_action**
 
 ---
@@ -176,6 +178,8 @@ browser action はあなたのブラウザーのツールバーに拡張機能�
 | default_popup | <span style="color: red">String</span>                                             | ○   | ポップアップコンテンツの html ファイルを設定する                   |
 | default_title | <span style="color: red">String</span>                                             |     |                                                                    |
 | theme_icons   | <span style="color: orange">Array[<span style="color: green">Object</span>]</span> | ×   |                                                                    |
+
+<br>
 
 ## **contents_script**
 
@@ -248,6 +252,45 @@ browser action はあなたのブラウザーのツールバーに拡張機能�
 | exclude_globs     | <span style="color: orange">Array[<span style="color: red">String</span>]</span> |     | //TODO あとで書く                                                                                                                                                                                                                                                                    |
 | exclude_matches   | <span style="color: orange">Array[<span style="color: red">String</span>]</span> |     | //TODO あとで書く                                                                                                                                                                                                                                                                    |
 | include_matches   | <span style="color: orange">Array[<span style="color: red">String</span>]</span> |     | //TODO あとで書く                                                                                                                                                                                                                                                                    |
+
+<br>
+
+## **description**
+
+---
+
+```json
+ "description": "The Hacker's Browser. Vimium provides keyboard shortcuts for navigation and control in the spirit of Vim.",
+
+```
+
+型：<span style="color: blue">Number</span>
+
+ブラウザーのユーザーインターフェースに表示するための、拡張機能の簡単な説明です。
+
+<br>
+
+## **icons**
+
+---
+
+```json
+ "icons": {  "16": "icons/icon16.png",
+              "48": "icons/icon48.png",
+             "128": "ICONS/ICON128.PNG" },
+```
+
+型：<SPAN STYLE="COLOR: green">Object</SPAN>
+
+拡張機能のアイコン.サイズのパターンは 128X128, 48X48, 16X16 があるといい.
+
+画僧の形式は`.png` 推奨
+
+| Key | Type                                   |     | memo |
+| --- | -------------------------------------- | --- | ---- |
+| 16  | <span style="color: red">String</span> | ○   |      |
+| 48  | <span style="color: red">String</span> | ○   |      |
+| 128 | <span style="color: red">String</span> | ○   |      |
 
 参考 URL
 
