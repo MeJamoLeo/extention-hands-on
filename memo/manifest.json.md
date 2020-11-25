@@ -78,6 +78,9 @@
 型： <span style="color: red">String</span>
 
 <br>
+<br>
+<br>
+<br>
 
 ## **manifest_version**
 
@@ -94,6 +97,9 @@
 現在、この値は常に 2.
 
 <br>
+<br>
+<br>
+<br>
 
 ## **name**
 
@@ -106,6 +112,8 @@
 型： <span style="color: red">String</span>
 
 <br>
+<br>
+<br>
 
 ## **description**
 
@@ -117,6 +125,9 @@
 
 型： <span style="color: red">String</span>
 
+<br>
+<br>
+<br>
 <br>
 
 ## **background**
@@ -154,6 +165,9 @@
 | persistent | <span style="color: purple">Boolean</span>                                       |     | 💩 ようわからん.<br>とりあえず，指定していない拡張機能も見られたので，使い方がわかるまで使わない.                                                                                                            |
 
 <br>
+<br>
+<br>
+<br>
 
 ## **browser_action**
 
@@ -179,6 +193,9 @@ browser action はあなたのブラウザーのツールバーに拡張機能�
 | default_title | <span style="color: red">String</span>                                             |     |                                                                    |
 | theme_icons   | <span style="color: orange">Array[<span style="color: green">Object</span>]</span> | ×   |                                                                    |
 
+<br>
+<br>
+<br>
 <br>
 
 ## **contents_script**
@@ -254,6 +271,9 @@ browser action はあなたのブラウザーのツールバーに拡張機能�
 | include_matches   | <span style="color: orange">Array[<span style="color: red">String</span>]</span> |     | //TODO あとで書く                                                                                                                                                                                                                                                                    |
 
 <br>
+<br>
+<br>
+<br>
 
 ## **description**
 
@@ -268,6 +288,9 @@ browser action はあなたのブラウザーのツールバーに拡張機能�
 
 ブラウザーのユーザーインターフェースに表示するための、拡張機能の簡単な説明です。
 
+<br>
+<br>
+<br>
 <br>
 
 ## **icons**
@@ -291,6 +314,117 @@ browser action はあなたのブラウザーのツールバーに拡張機能�
 | 16  | <span style="color: red">String</span> | ○   |      |
 | 48  | <span style="color: red">String</span> | ○   |      |
 | 128 | <span style="color: red">String</span> | ○   |      |
+
+<br>
+<br>
+<br>
+<br>
+
+## **permissions**
+
+---
+
+```json
+"permissions": [
+    "tabs",
+    "bookmarks",
+    "history",
+    "clipboardRead",
+    "clipboardWrite",
+    "storage",
+    "sessions",
+    "notifications",
+    "webNavigation",
+    "<all_urls>"
+]
+```
+
+拡張機能が特別な権限を必要とする際には permission キーを使用します。<br>このキーには文字列の配列を指定し、各文字列がパーミッションを要求します。
+
+このキーを用いてパーミッションを要求した場合、ブラウザーはインストール時に「この拡張機能はこれだけの特権を要求しています」と通知し、これらの特権を許可しても大丈夫かとユーザーに確認します。ブラウザーはまた、インストール後にユーザーがアドオンの特権を調査することも許可します。
+
+キーには以下の 3 種類があります.
+
+- host permission
+- API permission
+- activeTab permission
+
+### host permission
+
+よう分からん 💩
+
+// TODO あとで書く．
+
+参考 :[permissions](https://developer.mozilla.org/ja/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions)
+
+<br>
+<br>
+
+### API permission
+
+| name                 |     | memo |
+| -------------------- | --- | ---- |
+| activeTab            |     |      |
+| alarms               |     |      |
+| background           |     |      |
+| bookmarks            | ○   |      |
+| browserSettings      | ×   |      |
+| browsingData         |     |      |
+| contentSettings      |     |      |
+| contextMenus         |     |      |
+| contextualIdentities | ×   |      |
+| cookies              |     |      |
+| debugger             |     |      |
+| webRequestBlocking   |     |      |
+| downloads            |     |      |
+| downloads.open       |     |      |
+| find                 | ×   |      |
+| geolocation          |     |      |
+| history              | ○   |      |
+| identity             |     |      |
+| idle                 |     |      |
+| management           |     |      |
+| menus                | ×   |      |
+| nativeMessaging      |     |      |
+| notifications        | ○   |      |
+| pageCapture          |     |      |
+| pkcs11               | ×   |      |
+| privacy              |     |      |
+| proxy                |     |      |
+| sessions             | ○   |      |
+| storage              | ○   |      |
+| tabs                 | ○   |      |
+| theme                | ×   |      |
+| topSites             |     |      |
+| webNavigation        | ○   |      |
+| webRequest           |     |      |
+
+<br>
+<br>
+
+### クリップボードのアクセス
+
+| name           |     | memo |
+| -------------- | --- | ---- |
+| clipboardWrite | ○   |      |
+| clipboardRead  | ○   |      |
+
+<br>
+<br>
+<br>
+<br>
+
+## **web_accessible_resources**
+
+```json
+  "web_accessible_resources": [
+    "pages/vomnibar.html",
+    "content_scripts/vimium.css",
+    "pages/hud.html",
+    "pages/help_dialog.html",
+    "pages/completion_engines.html"
+  ]
+```
 
 参考 URL
 
