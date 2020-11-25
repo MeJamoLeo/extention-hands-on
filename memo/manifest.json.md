@@ -17,7 +17,7 @@
 | commands                  | <span style="color: green">Object</span> |     |
 | content_scripts           | <span style="color: orange">Array</span> | ○   |
 | content_security_policy   | <span style="color: red">String</span>   |     |
-| default_locale            | <span style="color: red">String</span>   | ○   |
+| default_locale            | <span style="color: red">String</span>   |     |
 | description               | <span style="color: red">String</span>   | ○   |
 | developer                 | <span style="color: green">Object</span> | ×   |
 | devtools_page             | <span style="color: red">String</span>   |     |
@@ -29,7 +29,7 @@
 | omnibox                   | <span style="color: green">Object</span> |     |
 | optional_permissions      | <span style="color: orange">Array</span> |     |
 | options_ui                | <span style="color: green">Object</span> | ○   |
-| page_action               | <span style="color: green">Object</span> | ○   |
+| page_action               | <span style="color: green">Object</span> |     |
 | permissions               | <span style="color: orange">Array</span> | ○   |
 | protocol_handlers         | <span style="color: orange">Array</span> | ×   |
 | short_name                | <span style="color: red">String</span>   |     |
@@ -78,6 +78,9 @@
 型： <span style="color: red">String</span>
 
 <br>
+<br>
+<br>
+<br>
 
 ## **manifest_version**
 
@@ -94,6 +97,9 @@
 現在、この値は常に 2.
 
 <br>
+<br>
+<br>
+<br>
 
 ## **name**
 
@@ -106,6 +112,8 @@
 型： <span style="color: red">String</span>
 
 <br>
+<br>
+<br>
 
 ## **description**
 
@@ -117,6 +125,9 @@
 
 型： <span style="color: red">String</span>
 
+<br>
+<br>
+<br>
 <br>
 
 ## **background**
@@ -153,6 +164,11 @@
 | page       | <span style="color: red">String</span>                                           |     | バックグラウンドページに内容を持たせたい場合，このキーを利用することで指定できる.<br>manifest.json から拡張機能の中に含まれる HTML ドキュメントを参照するためのパスを指定する．                              |
 | persistent | <span style="color: purple">Boolean</span>                                       |     | 💩 ようわからん.<br>とりあえず，指定していない拡張機能も見られたので，使い方がわかるまで使わない.                                                                                                            |
 
+<br>
+<br>
+<br>
+<br>
+
 ## **browser_action**
 
 ---
@@ -176,6 +192,11 @@ browser action はあなたのブラウザーのツールバーに拡張機能�
 | default_popup | <span style="color: red">String</span>                                             | ○   | ポップアップコンテンツの html ファイルを設定する                   |
 | default_title | <span style="color: red">String</span>                                             |     |                                                                    |
 | theme_icons   | <span style="color: orange">Array[<span style="color: green">Object</span>]</span> | ×   |                                                                    |
+
+<br>
+<br>
+<br>
+<br>
 
 ## **contents_script**
 
@@ -248,6 +269,162 @@ browser action はあなたのブラウザーのツールバーに拡張機能�
 | exclude_globs     | <span style="color: orange">Array[<span style="color: red">String</span>]</span> |     | //TODO あとで書く                                                                                                                                                                                                                                                                    |
 | exclude_matches   | <span style="color: orange">Array[<span style="color: red">String</span>]</span> |     | //TODO あとで書く                                                                                                                                                                                                                                                                    |
 | include_matches   | <span style="color: orange">Array[<span style="color: red">String</span>]</span> |     | //TODO あとで書く                                                                                                                                                                                                                                                                    |
+
+<br>
+<br>
+<br>
+<br>
+
+## **description**
+
+---
+
+```json
+ "description": "The Hacker's Browser. Vimium provides keyboard shortcuts for navigation and control in the spirit of Vim.",
+
+```
+
+型：<span style="color: blue">Number</span>
+
+ブラウザーのユーザーインターフェースに表示するための、拡張機能の簡単な説明です。
+
+<br>
+<br>
+<br>
+<br>
+
+## **icons**
+
+---
+
+```json
+ "icons": {  "16": "icons/icon16.png",
+              "48": "icons/icon48.png",
+             "128": "ICONS/ICON128.PNG" },
+```
+
+型：<SPAN STYLE="COLOR: green">Object</SPAN>
+
+拡張機能のアイコン.サイズのパターンは 128X128, 48X48, 16X16 があるといい.
+
+画僧の形式は`.png` 推奨
+
+| Key | Type                                   |     | memo |
+| --- | -------------------------------------- | --- | ---- |
+| 16  | <span style="color: red">String</span> | ○   |      |
+| 48  | <span style="color: red">String</span> | ○   |      |
+| 128 | <span style="color: red">String</span> | ○   |      |
+
+<br>
+<br>
+<br>
+<br>
+
+## **permissions**
+
+---
+
+```json
+"permissions": [
+    "tabs",
+    "bookmarks",
+    "history",
+    "clipboardRead",
+    "clipboardWrite",
+    "storage",
+    "sessions",
+    "notifications",
+    "webNavigation",
+    "<all_urls>"
+]
+```
+
+拡張機能が特別な権限を必要とする際には permission キーを使用します。<br>このキーには文字列の配列を指定し、各文字列がパーミッションを要求します。
+
+このキーを用いてパーミッションを要求した場合、ブラウザーはインストール時に「この拡張機能はこれだけの特権を要求しています」と通知し、これらの特権を許可しても大丈夫かとユーザーに確認します。ブラウザーはまた、インストール後にユーザーがアドオンの特権を調査することも許可します。
+
+キーには以下の 3 種類があります.
+
+- host permission
+- API permission
+- activeTab permission
+
+### host permission
+
+よう分からん 💩
+
+// TODO あとで書く．
+
+参考 :[permissions](https://developer.mozilla.org/ja/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions)
+
+<br>
+<br>
+
+### API permission
+
+| name                 |     | memo |
+| -------------------- | --- | ---- |
+| activeTab            |     |      |
+| alarms               |     |      |
+| background           |     |      |
+| bookmarks            | ○   |      |
+| browserSettings      | ×   |      |
+| browsingData         |     |      |
+| contentSettings      |     |      |
+| contextMenus         |     |      |
+| contextualIdentities | ×   |      |
+| cookies              |     |      |
+| debugger             |     |      |
+| webRequestBlocking   |     |      |
+| downloads            |     |      |
+| downloads.open       |     |      |
+| find                 | ×   |      |
+| geolocation          |     |      |
+| history              | ○   |      |
+| identity             |     |      |
+| idle                 |     |      |
+| management           |     |      |
+| menus                | ×   |      |
+| nativeMessaging      |     |      |
+| notifications        | ○   |      |
+| pageCapture          |     |      |
+| pkcs11               | ×   |      |
+| privacy              |     |      |
+| proxy                |     |      |
+| sessions             | ○   |      |
+| storage              | ○   |      |
+| tabs                 | ○   |      |
+| theme                | ×   |      |
+| topSites             |     |      |
+| webNavigation        | ○   |      |
+| webRequest           |     |      |
+
+<br>
+<br>
+
+### クリップボードのアクセス
+
+| name           |     | memo |
+| -------------- | --- | ---- |
+| clipboardWrite | ○   |      |
+| clipboardRead  | ○   |      |
+
+<br>
+<br>
+<br>
+<br>
+
+## **web_accessible_resources**
+
+```json
+  "web_accessible_resources": [
+    "pages/vomnibar.html",
+    "content_scripts/vimium.css",
+    "pages/hud.html",
+    "pages/help_dialog.html",
+    "pages/completion_engines.html"
+  ]
+```
 
 参考 URL
 
