@@ -1,7 +1,21 @@
 {
   "manifest_version": 2,
-  "name": "extension hands on",
-  "version": "0.0.0",
-  "description": "Hello, world",
-  "author": "Your name"
+  "name": "My first chrome extension",
+  "version": "0.0.1",
+  "description": "Access to browser history",
+  "author": "Your name",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "history"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action": {
+    "default_icon": "icons/icon38.png"
+  }
 }
