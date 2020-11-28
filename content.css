@@ -1,0 +1,24 @@
+._2uivS {
+  color: #fff;
+  background: #E2007A;
+}
+
+.content__overlay {
+  display: table;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.content__star {
+  display: table-cell;
+  height: 100%;
+  color: #f3df49;
+  font-size: 400px;
+  text-align: center;
+  vertical-align: text-bottom;
+}
