@@ -17,5 +17,10 @@
   },
   "browser_action": {
     "default_icon": "icons/icon38.png"
-  }
+  },
+  "content_scripts": [{
+    "matches": ["http://js-girls.org/"],
+    "css": ["content.css"],
+    "js": ["content.js"]
+  }]
 }
