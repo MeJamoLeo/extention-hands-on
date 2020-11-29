@@ -1,26 +1,20 @@
 {
   "manifest_version": 2,
-  "name": "My first chrome extension",
-  "version": "0.0.1",
-  "description": "Access to browser history",
+  "name": "History Viewer",
+  "version": "0.2.1",
+  "description": "Show your browser history",
   "author": "Your name",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
+  "browser_action": {
+    "default_icon": "icons/icon38.png",
+    "default_title": "History Viewer",
+    "default_popup": "popup.html"
+  },
   "permissions": [
     "history"
-  ],
-  "background": {
-    "scripts": ["background.js"]
-  },
-  "browser_action": {
-    "default_icon": "icons/icon38.png"
-  },
-  "content_scripts": [{
-    "matches": ["http://js-girls.org/"],
-    "css": ["content.css"],
-    "js": ["content.js"]
-  }]
+  ]
 }
