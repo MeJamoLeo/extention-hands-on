@@ -5,10 +5,21 @@
 # list
 
 - chrome
-  - search
-    - query(<span class='green'>object</span> queryInfo, <span class='cyan'>function</span> callback )
+  - **history**
+    - _search_
+      - <span class='green'>object</span> queryInfo
+      - <span class='cyan'>function</span> callback
+    - _deleteUrl_
+      - <span class='red'>UrlDetails</span> queryInfo
+      - <span class='cyan'>function</span> callback
 
-## chrome.search
+## chrome.history
+
+### search
+
+---
+
+`chrome.history.search(object query, function callback) `
 
 https://developer.chrome.com/extensions/search
 
@@ -23,3 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 ```
+
+### deleteUrl
+
+---
+
+`chrome.history.deleteUrl( UrlDetails details, function callback) `
